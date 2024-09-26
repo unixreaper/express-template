@@ -1,0 +1,13 @@
+# Ignore the main node_modules folder
+/node_modules/
+
+# Ignore logs
+logs
+*.log
+npm-debug.log*
+
+# Ignore environment variables
+.env
+
+# Ignore the src node_modules folder
+/src/node_modules/

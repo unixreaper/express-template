@@ -1,0 +1,71 @@
+{
+  "development": {
+    "database": {
+      "username": "your-user",
+      "password": "your-password",
+      "database": "your-database",
+      "host": "localhost",
+      "dialect": "postgres or mysql"
+    },
+    "redis": {
+      "host": "localhost",
+      "port": 6379,
+      "password": "your-redis-password"
+    },
+    "encryption": {
+      "hasher": {
+        "salt": "your-salt",
+        "secretkey": "your-secret-key"
+      },
+      "jwt": {
+        "secretkey": "your-secret-key"
+      }
+    }
+  },
+  "test": {
+    "database": {
+      "username": "your-user",
+      "password": "your-password",
+      "database": "your-database",
+      "host": "localhost",
+      "dialect": "postgres or mysql"
+    },
+    "redis": {
+      "host": "localhost",
+      "port": 6379,
+      "password": "your-redis-password"
+    },
+    "encryption": {
+      "hasher": {
+        "salt": "your-salt",
+        "secretkey": "your-secret-key"
+      },
+      "jwt": {
+        "secretkey": "your-secret-key"
+      }
+    }
+  },
+  "production": {
+    "database": {
+      "username": "your-user",
+      "password": "your-password",
+      "database": "your-database",
+      "host": "localhost",
+      "dialect": "postgres or mysql"
+    },
+    "redis": {
+      "host": "localhost",
+      "port": 6379,
+      "password": "your-redis-password"
+    },
+    "encryption": {
+      "hasher": {
+        "salt": "your-salt",
+        "secretkey": "your-secret-key"
+      },
+      "jwt": {
+        "secretkey": "your-secret-key"
+      }
+    }
+  }
+}
