@@ -32,10 +32,6 @@ async function initializeApp() {
 
   //   console.log('All models were synchronized successfully.');
 
-  //   // Initialize default data
-  //   await initializeDefaults();
-  //   await addDefaultLeaveTypes();
-
   //   console.log('Default data initialized successfully.');
 
   // } catch (error) {

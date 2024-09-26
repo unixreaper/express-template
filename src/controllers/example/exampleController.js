@@ -60,8 +60,6 @@ exports.exampleTest = async (req, res, next) => {
         });
     }
 
-    const { roles } = req.user;
-
     // Simulate successful creation of a user
     const tokenPayload = {
         uid: uuidv4(), // Generate a USER-ID
