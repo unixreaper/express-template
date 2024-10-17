@@ -45,22 +45,29 @@ async function setupLogging() {
   console.log = (...args) => {
     if (process.env.NODE_ENV !== 'test') {
       const displayTime = getFormattedTimestamp();
-      let message = args.join(' ');
-
+  
+      // Handle objects by converting them to strings
+      const formattedArgs = args.map(arg => {
+        if (typeof arg === 'object') {
+          return JSON.stringify(arg, null, 2); // Convert object to string with indentation for readability
+        }
+        return arg;
+      });
+  
+      let message = formattedArgs.join(' ');
+  
       if (message.includes('Executing')) {
         message = message.replace('Executing', logLevels.highlight('Executing'));
       }
-
+  
       const plainMessage = stripAnsi.default(message); // Strip colors for the log file
-
+  
       const logToFile = `${displayTime}: ${plainMessage}\n`;
       fs.appendFileSync(logFilePath, logToFile);
-
+  
       let colorizedLog;
-      // const level = args[0].toLowerCase();
-      const level = typeof args[0] === 'string' ? args[0].toLowerCase() : '';
-
-
+      const level = typeof formattedArgs[0] === 'string' ? formattedArgs[0].toLowerCase() : '';
+  
       switch (level) {
         case 'info':
           colorizedLog = logLevels.info(`[INFO] ${message}`);
@@ -77,10 +84,11 @@ async function setupLogging() {
         default:
           colorizedLog = message;
       }
-
+  
       return log(`${logLevels.timestamp(displayTime)}: ${colorizedLog}`);
     }
   };
+  
 }
 
 setupLogging();
