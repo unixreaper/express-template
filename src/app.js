@@ -1,10 +1,19 @@
 // app.js
 const express = require('express');
 const http = require('http');
+const cors = require('cors');  // Import cors
 
 require('./utils/logging');
 const app = require('./include/express');
 const { enhanceResponsePrototype } = require('./utils/responseEnhancer');
+
+// Enable CORS
+const corsOptions = {
+  origin: '*',  // Set allowed origins, or specify particular domains
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type, Authorization',
+};
+app.use(cors(corsOptions));
 
 // เปิด comment ข้างล่าง ถ้าหากจะเชื่อม database ใน config.json
 // const sequelize = require('./utils/database/database-client');
