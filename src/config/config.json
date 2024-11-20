@@ -1,5 +1,8 @@
 {
   "development": {
+    "server": {
+      "port": 4444
+    },
     "database": {
       "username": "your-user",
       "password": "your-password",
@@ -23,6 +26,9 @@
     }
   },
   "test": {
+    "server": {
+      "port": 3000
+    },
     "database": {
       "username": "your-user",
       "password": "your-password",
@@ -46,6 +52,9 @@
     }
   },
   "production": {
+    "server": {
+      "port": 8080
+    },
     "database": {
       "username": "your-user",
       "password": "your-password",
