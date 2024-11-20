@@ -1,7 +1,7 @@
-// app.js
 const express = require('express');
 const http = require('http');
-const cors = require('cors');  // Import cors
+const cors = require('cors'); // Import cors
+const config = require('./config/config.json')[process.env.NODE_ENV || 'development']; // Load configuration based on environment
 
 require('./utils/logging');
 const app = require('./include/express');
@@ -9,14 +9,11 @@ const { enhanceResponsePrototype } = require('./utils/responseEnhancer');
 
 // Enable CORS
 const corsOptions = {
-  origin: '*',  // Set allowed origins, or specify particular domains
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: 'Content-Type, Authorization',
+  origin: config.express.cors.origin, // Allowed origins from config
+  methods: config.express.cors.methods, // Allowed methods from config
+  allowedHeaders: config.express.cors.allowedHeaders, // Allowed headers from config
 };
 app.use(cors(corsOptions));
-
-// เปิด comment ข้างล่าง ถ้าหากจะเชื่อม database ใน config.json
-// const sequelize = require('./utils/database/database-client');
 
 // Show Environment
 const env = process.env.NODE_ENV || 'development';
@@ -27,37 +24,32 @@ enhanceResponsePrototype(app.response);
 
 // Define an async function to handle async operations
 async function initializeApp() {
+  // Uncomment below if database is used in config
+  // const sequelize = require('./utils/database/database-client');
 
-  // เปิด comment ข้างล่าง ถ้าหากจะเชื่อม database ใน config.json
+  try {
+    // Uncomment to test database connection
+    // await sequelize.authenticate();
+    // console.log('Connection has been established successfully.');
 
-  // try {
-  //   // Test database connection
-  //   await sequelize.authenticate();
-  //   console.log('Connection has been established successfully.');
-
-  //   // Sync all models, force reload if necessary
-  //   // await sequelize.sync({ force: true }); // force ให้รีโหลดทุกรอบ
-  //   await sequelize.sync({ alter: true }); // This will ensure that your database schema is updated with the correct foreign key relationship.
-
-  //   console.log('All models were synchronized successfully.');
-
-  //   console.log('Default data initialized successfully.');
-
-  // } catch (error) {
-  //   console.error('Error initializing the application:', error);
-  // }
+    // Uncomment to sync models
+    // await sequelize.sync({ alter: true });
+    // console.log('All models were synchronized successfully.');
+  } catch (error) {
+    console.error('Error initializing the application:', error);
+  }
 
   // Start the server after initialization is complete
   const server = http.createServer(app);
-  const PORT = process.env.PORT || 4444;
+  const PORT = config.express.port || 4444;
   server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
 }
 
 // Middleware
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json({ limit: '50mb', extended: true }));
+app.use(express.urlencoded({ extended: config.express.urlencoded }));
+app.use(express.json({ limit: config.express.json.limit, extended: config.express.json.extended }));
 
 // Routers
 const apiRouter = require('./routers');
@@ -65,7 +57,7 @@ app.use('/api/v1/', apiRouter);
 
 // Start the initialization process
 if (require.main === module) {
-  initializeApp(); 
+  initializeApp();
 }
 
 module.exports = app;
