@@ -34,6 +34,17 @@
         "secretkey": "your-secret-key"
       }
     },
+    "mailserver": {
+      "smtp": {
+        "host": "smtp.hostinger.com",
+        "port": 465,
+        "secure": true,
+        "user": "no-reply@testcompany.com",
+        "pass": "test-password",
+        "sender": "UNIXREAPER"
+      },
+      "icon": "https://cdn-icons-png.flaticon.com/512/13207/13207647.png"
+    },
     "storage": {
       "cloudflarer2": {
         "accountid": "your-development-account-id",
@@ -80,6 +91,17 @@
         "secretkey": "your-secret-key"
       }
     },
+    "mailserver": {
+      "smtp": {
+        "host": "smtp.test-host.com",
+        "port": 587,
+        "secure": false,
+        "user": "test-user@test.com",
+        "pass": "test-password",
+        "sender": "UNIXREAPER"
+      },
+      "icon": "https://cdn-icons-png.flaticon.com/512/13207/13207647.png"
+    },
     "storage": {
       "cloudflarer2": {
         "accountid": "your-test-account-id",
@@ -125,6 +147,17 @@
       "jwt": {
         "secretkey": "your-secret-key"
       }
+    },
+    "mailserver": {
+      "smtp": {
+        "host": "smtp.hostinger.com",
+        "port": 465,
+        "secure": true,
+        "user": "testuser@gmail.com",
+        "pass": "test-password",
+        "sender": "UNIXREAPER"
+      },
+      "icon": "https://cdn-icons-png.flaticon.com/512/13207/13207647.png"
     },
     "storage": {
       "cloudflarer2": {
