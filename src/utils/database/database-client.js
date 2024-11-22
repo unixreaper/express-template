@@ -19,3 +19,4 @@ const sequelize = new Sequelize(
 );
 
 module.exports = sequelize; // Correctly export the initialized sequelize instance
+

@@ -33,6 +33,16 @@
       "jwt": {
         "secretkey": "your-secret-key"
       }
+    },
+    "storage": {
+      "cloudflarer2": {
+        "accountid": "your-development-account-id",
+        "accesskeyid": "your-development-access-key-id",
+        "secretkeyid": "your-development-secret-key-id",
+        "region": "auto",
+        "bucketname": "your-development-bucket-name",
+        "publicdomain": "https://your-development-account-id.r2.cloudflarestorage.com/your-development-bucket-name"
+      }
     }
   },
   "test": {
@@ -69,6 +79,16 @@
       "jwt": {
         "secretkey": "your-secret-key"
       }
+    },
+    "storage": {
+      "cloudflarer2": {
+        "accountid": "your-test-account-id",
+        "accesskeyid": "your-test-access-key-id",
+        "secretkeyid": "your-test-secret-key-id",
+        "region": "auto",
+        "bucketname": "your-test-bucket-name",
+        "publicdomain": "https://your-test-account-id.r2.cloudflarestorage.com/your-test-bucket-name"
+      }
     }
   },
   "production": {
@@ -76,7 +96,7 @@
       "port": 8080,
       "urlencoded": true,
       "json": {
-        "limit": "10mb",
+        "limit": "20mb",
         "extended": true
       },
       "cors": {
@@ -104,6 +124,16 @@
       },
       "jwt": {
         "secretkey": "your-secret-key"
+      }
+    },
+    "storage": {
+      "cloudflarer2": {
+        "accountid": "your-production-account-id",
+        "accesskeyid": "your-production-access-key-id",
+        "secretkeyid": "your-production-secret-key-id",
+        "region": "auto",
+        "bucketname": "your-production-bucket-name",
+        "publicdomain": "https://your-production-account-id.r2.cloudflarestorage.com/your-production-bucket-name"
       }
     }
   }
