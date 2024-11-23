@@ -1,10 +1,11 @@
 const MultiLayerCryptoManager = require('../utils/security/MultiLayerCryptoManager');
+const config = require('../../../config/config.json'); // Adjust path
 
-// Define the encryption layers
-const layers = [
-  { algorithm: 'aes-256-cbc', secret: 'FBB36928E54AB1BD76E544E22EA14B5F69DAEEA6C4882DF34EEF533278', salt: 'salt1' },
-  { algorithm: 'aes-192-cbc', secret: 'FBB36928E54AB1BD76E544E22EA14B5F69DAEEA6C4882DF34EEF533278', salt: 'salt2' }
-];
+// Fetch the current environment
+const ENV = process.env.NODE_ENV || 'development';
+
+// Define the encryption layers from the config
+const layers = config[ENV].encryption.layers;
 
 // Initialize the multi-layer crypto manager
 const cryptoManager = new MultiLayerCryptoManager(layers);

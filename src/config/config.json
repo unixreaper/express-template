@@ -32,7 +32,19 @@
       },
       "jwt": {
         "secretkey": "your-secret-key"
-      }
+      },
+      "multilayers": [
+        {
+          "algorithm": "aes-256-cbc",
+          "secret": "your-secret",
+          "salt": "prod-salt1"
+        },
+        {
+          "algorithm": "aes-192-cbc",
+          "secret": "your-secret",
+          "salt": "prod-salt2"
+        }
+      ]
     },
     "mailserver": {
       "smtp": {
@@ -89,7 +101,19 @@
       },
       "jwt": {
         "secretkey": "your-secret-key"
-      }
+      },
+      "multilayers": [
+        {
+          "algorithm": "aes-256-cbc",
+          "secret": "your-secret",
+          "salt": "prod-salt1"
+        },
+        {
+          "algorithm": "aes-192-cbc",
+          "secret": "your-secret",
+          "salt": "prod-salt2"
+        }
+      ]
     },
     "mailserver": {
       "smtp": {
@@ -146,7 +170,19 @@
       },
       "jwt": {
         "secretkey": "your-secret-key"
-      }
+      },
+      "multilayers": [
+        {
+          "algorithm": "aes-256-cbc",
+          "secret": "your-secret",
+          "salt": "prod-salt1"
+        },
+        {
+          "algorithm": "aes-192-cbc",
+          "secret": "your-secret",
+          "salt": "prod-salt2"
+        }
+      ]
     },
     "mailserver": {
       "smtp": {
